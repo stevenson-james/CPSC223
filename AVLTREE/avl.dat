@@ -1,0 +1,945 @@
+----------------------------------PIVOT CASES----------------------------------
+
+CASE1: EMPTY TREE
+
+Pre Tree:
+
+Adding bbb to AVL tree
+
+Post Tree: 
+root ->bbb:0
+
+CASE2: ADDED TO TREE OF HEIGHT 1 LEFTCHILD
+
+Pre Tree:
+root ->bbb:0
+
+Adding aaa to AVL tree
+
+Post Tree: 
+root ->bbb:-1
+            \
+              aaa:0
+
+CASE3: ADDED TO TREE OF HEIGHT 1 RIGHTCHILD
+
+Pre Tree:
+root ->bbb:0
+
+Adding ccc to AVL tree
+
+Post Tree: 
+              ccc:0
+            /
+root ->bbb:1
+
+CASE4: ADDED TO BALANCED TREE OF HEIGHT 2
+
+Pre Tree:
+              fff:0
+            /
+root ->ddd:0
+            \
+              bbb:0
+
+Adding aaa to AVL tree
+
+Post Tree: 
+              fff:0
+            /
+root ->ddd:-1
+            \
+              bbb:-1
+                  \
+                     aaa:0
+
+CASE5: ADDED TO BALANCED TREE OF HEIGHT 2
+
+Pre Tree:
+              fff:0
+            /
+root ->ddd:0
+            \
+              bbb:0
+
+Adding ccc to AVL tree
+
+Post Tree: 
+              fff:0
+            /
+root ->ddd:-1
+            \
+                     ccc:0
+                  /
+              bbb:1
+
+CASE6: ADDED TO BALANCED TREE OF HEIGHT 2
+
+Pre Tree:
+              fff:0
+            /
+root ->ddd:0
+            \
+              bbb:0
+
+Adding eee to AVL tree
+
+Post Tree: 
+              fff:-1
+                  \
+                     eee:0
+            /
+root ->ddd:1
+            \
+              bbb:0
+
+-------------------------------SHORT SIDE CASES--------------------------------
+
+CASE1: ADDED TO TREE OF HEIGHT 2 SHORT LEFTCHILD
+
+Pre Tree:
+root ->bbb:-1
+            \
+              aaa:0
+
+Adding ccc to AVL tree
+
+Post Tree: 
+              ccc:0
+            /
+root ->bbb:0
+            \
+              aaa:0
+
+CASE2: ADDED TO TREE OF HEIGHT 2 SHORT RIGHTCHILD
+
+Pre Tree:
+              ccc:0
+            /
+root ->bbb:1
+
+Adding aaa to AVL tree
+
+Post Tree: 
+              ccc:0
+            /
+root ->bbb:0
+            \
+              aaa:0
+
+CASE3: ADDED TO LEFTCHILD OF LEFTCHILD OF TREE HEIGHT 3
+
+Pre Tree:
+                     ggg:0
+                  /
+              fff:1
+            /
+root ->ccc:1
+            \
+              bbb:0
+
+Adding aaa to AVL tree
+
+Post Tree: 
+                     ggg:0
+                  /
+              fff:1
+            /
+root ->ccc:0
+            \
+              bbb:-1
+                  \
+                     aaa:0
+
+CASE4: ADDED TO LEFTCHILD OF RIGHTCHILD OF TREE HEIGHT 3
+
+Pre Tree:
+                     ggg:0
+                  /
+              fff:1
+            /
+root ->ccc:1
+            \
+              bbb:0
+
+Adding ddd to AVL tree
+
+Post Tree: 
+                     ggg:0
+                  /
+              fff:0
+                  \
+                     ddd:0
+            /
+root ->ccc:1
+            \
+              bbb:0
+
+CASE5: ADDED TO RIGHTCHILD OF LEFTCHILD OF TREE HEIGHT 3
+
+Pre Tree:
+              fff:0
+            /
+root ->ccc:-1
+            \
+              bbb:-1
+                  \
+                     aaa:0
+
+Adding ddd to AVL tree
+
+Post Tree: 
+              fff:-1
+                  \
+                     ddd:0
+            /
+root ->ccc:0
+            \
+              bbb:-1
+                  \
+                     aaa:0
+
+CASE6: ADDED TO RIGHTCHILD OF RIGHTCHILD OF TREE HEIGHT 3
+
+Pre Tree:
+              fff:0
+            /
+root ->ccc:-1
+            \
+              bbb:-1
+                  \
+                     aaa:0
+
+Adding ggg to AVL tree
+
+Post Tree: 
+                     ggg:0
+                  /
+              fff:1
+            /
+root ->ccc:0
+            \
+              bbb:-1
+                  \
+                     aaa:0
+
+---------------------------SINGLE ROTATE LEFT CASES----------------------------
+
+CASE1: PIVOT IS THE ROOT AND T1 - T3 ARE HEIGHT 0
+
+Pre Tree:
+              ccc:0
+            /
+root ->bbb:1
+
+Adding ddd to AVL tree
+
+Post Tree: 
+              ddd:0
+            /
+root ->ccc:0
+            \
+              bbb:0
+
+CASE2: PIVOT IS THE ROOT AND T1 - T3 ARE HEIGHT 1
+
+Pre Tree:
+                     ggg:0
+                  /
+              fff:0
+                  \
+                     ddd:0
+            /
+root ->ccc:1
+            \
+              aaa:0
+
+Adding hhh to AVL tree
+
+Post Tree: 
+                     hhh:0
+                  /
+              ggg:1
+            /
+root ->fff:0
+            \
+                     ddd:0
+                  /
+              ccc:0
+                  \
+                     aaa:0
+
+CASE3: PIVOT IS THE RIGHTCHILD OF THE CLOUD AND T1 - T3 ARE HEIGHT 0
+
+Pre Tree:
+                     iii:0
+                  /
+              hhh:1
+            /
+root ->eee:1
+            \
+              ccc:0
+
+Adding jjj to AVL tree
+
+Post Tree: 
+                     jjj:0
+                  /
+              iii:0
+                  \
+                     hhh:0
+            /
+root ->eee:1
+            \
+              ccc:0
+
+CASE4: PIVOT IS THE RIGHTCHILD OF THE CLOUD AND T1 - T3 ARE HEIGHT 1
+
+Pre Tree:
+                     iii:0
+                  /
+              hhh:1
+            /
+root ->eee:0
+            \
+                     ccc:0
+                  /
+              bbb:0
+                  \
+                     aaa:0
+
+Adding jjj to AVL tree
+
+Post Tree: 
+                     jjj:0
+                  /
+              iii:0
+                  \
+                     hhh:0
+            /
+root ->eee:0
+            \
+                     ccc:0
+                  /
+              bbb:0
+                  \
+                     aaa:0
+
+CASE5: PIVOT IS THE LEFTCHILD OF THE CLOUD AND T1 - T3 ARE HEIGHT 0
+
+Pre Tree:
+              hhh:0
+            /
+root ->eee:-1
+            \
+                     ccc:0
+                  /
+              bbb:1
+
+Adding ddd to AVL tree
+
+Post Tree: 
+              hhh:0
+            /
+root ->eee:-1
+            \
+                     ddd:0
+                  /
+              ccc:0
+                  \
+                     bbb:0
+
+CASE6: PIVOT IS THE LEFTCHILD OF THE CLOUD AND T1 - T3 ARE HEIGHT 1
+
+Pre Tree:
+                     iii:0
+                  /
+              hhh:0
+                  \
+                     fff:0
+            /
+root ->eee:0
+            \
+                     ccc:0
+                  /
+              bbb:1
+
+Adding ddd to AVL tree
+
+Post Tree: 
+                     iii:0
+                  /
+              hhh:0
+                  \
+                     fff:0
+            /
+root ->eee:0
+            \
+                     ddd:0
+                  /
+              ccc:0
+                  \
+                     bbb:0
+
+---------------------------SINGLE ROTATE RIGHT CASES---------------------------
+
+CASE1: PIVOT IS THE ROOT AND T1 - T3 ARE HEIGHT 0
+
+Pre Tree:
+root ->ccc:-1
+            \
+              bbb:0
+
+Adding aaa to AVL tree
+
+Post Tree: 
+              ccc:0
+            /
+root ->bbb:0
+            \
+              aaa:0
+
+CASE2: PIVOT IS THE ROOT AND T1 - T3 ARE HEIGHT 1
+
+Pre Tree:
+              iii:0
+            /
+root ->ggg:-1
+            \
+                     ddd:0
+                  /
+              ccc:0
+                  \
+                     bbb:0
+
+Adding aaa to AVL tree
+
+Post Tree: 
+                     iii:0
+                  /
+              ggg:0
+                  \
+                     ddd:0
+            /
+root ->ccc:0
+            \
+              bbb:-1
+                  \
+                     aaa:0
+
+CASE3: PIVOT IS THE RIGHTCHILD OF THE CLOUD AND T1 - T3 ARE HEIGHT 0
+
+Pre Tree:
+              jjj:-1
+                  \
+                     iii:0
+            /
+root ->ggg:1
+            \
+              ddd:0
+
+Adding hhh to AVL tree
+
+Post Tree: 
+                     jjj:0
+                  /
+              iii:0
+                  \
+                     hhh:0
+            /
+root ->ggg:1
+            \
+              ddd:0
+
+CASE4: PIVOT IS THE RIGHTCHILD OF THE CLOUD AND T1 - T3 ARE HEIGHT 1
+
+Pre Tree:
+              jjj:-1
+                  \
+                     iii:0
+            /
+root ->ggg:0
+            \
+                     ddd:0
+                  /
+              ccc:0
+                  \
+                     bbb:0
+
+Adding hhh to AVL tree
+
+Post Tree: 
+                     jjj:0
+                  /
+              iii:0
+                  \
+                     hhh:0
+            /
+root ->ggg:0
+            \
+                     ddd:0
+                  /
+              ccc:0
+                  \
+                     bbb:0
+
+CASE5: PIVOT IS THE LEFTCHILD OF THE CLOUD AND T1 - T3 ARE HEIGHT 0
+
+Pre Tree:
+              jjj:0
+            /
+root ->ggg:-1
+            \
+              ddd:-1
+                  \
+                     bbb:0
+
+Adding aaa to AVL tree
+
+Post Tree: 
+              jjj:0
+            /
+root ->ggg:-1
+            \
+                     ddd:0
+                  /
+              bbb:0
+                  \
+                     aaa:0
+
+CASE6: PIVOT IS THE LEFTCHILD OF THE CLOUD AND T1 - T3 ARE HEIGHT 1
+
+Pre Tree:
+                     kkk:0
+                  /
+              jjj:0
+                  \
+                     iii:0
+            /
+root ->ggg:0
+            \
+              ddd:-1
+                  \
+                     bbb:0
+
+Adding aaa to AVL tree
+
+Post Tree: 
+                     kkk:0
+                  /
+              jjj:0
+                  \
+                     iii:0
+            /
+root ->ggg:0
+            \
+                     ddd:0
+                  /
+              bbb:0
+                  \
+                     aaa:0
+
+-------------------------DOUBLE ROTATE LEFT RIGHT CASES-------------------------
+
+CASE1: PIVOT IS THE RIGHT CHILD OF THE CLOUD
+
+Pre Tree:
+              eee:-1
+                  \
+                     ccc:0
+            /
+root ->bbb:1
+            \
+              aaa:0
+
+Adding ddd to AVL tree
+
+Post Tree: 
+                     eee:0
+                  /
+              ddd:0
+                  \
+                     ccc:0
+            /
+root ->bbb:1
+            \
+              aaa:0
+
+CASE2: PIVOT IS THE LEFT CHILD OF THE CLOUD
+
+Pre Tree:
+              eee:0
+            /
+root ->ddd:-1
+            \
+              ccc:-1
+                  \
+                     aaa:0
+
+Adding bbb to AVL tree
+
+Post Tree: 
+              eee:0
+            /
+root ->ddd:-1
+            \
+                     ccc:0
+                  /
+              bbb:0
+                  \
+                     aaa:0
+
+CASE3: PIVOT IS THE ROOT OF THE TREE
+
+Pre Tree:
+root ->ccc:-1
+            \
+              aaa:0
+
+Adding bbb to AVL tree
+
+Post Tree: 
+              ccc:0
+            /
+root ->bbb:0
+            \
+              aaa:0
+
+CASE4: PIVOT IS THE ROOT OF THE TREE AND T4 IS HEIGHT OF 1
+
+Pre Tree:
+              fff:0
+            /
+root ->eee:-1
+            \
+                     ddd:0
+                  /
+              bbb:0
+                  \
+                     aaa:0
+
+Adding ccc to AVL tree
+
+Post Tree: 
+                     fff:0
+                  /
+              eee:0
+            /
+root ->ddd:1
+            \
+                     ccc:0
+                  /
+              bbb:0
+                  \
+                     aaa:0
+
+CASE5: PIVOT IS THE ROOT OF THE TREE AND T2 IS HEIGHT OF 1
+
+Pre Tree:
+                     fff:0
+                  /
+              eee:0
+                  \
+                     ddd:0
+            /
+root ->bbb:1
+            \
+              aaa:0
+
+Adding ccc to AVL tree
+
+Post Tree: 
+                     fff:0
+                  /
+              eee:0
+            /
+root ->ddd:1
+            \
+                     ccc:0
+                  /
+              bbb:0
+                  \
+                     aaa:0
+
+CASE6: PIVOT IS THE ROOT OF THE TREE AND T3 IS HEIGHT OF 1
+
+Pre Tree:
+              fff:0
+            /
+root ->eee:-1
+            \
+                     ccc:0
+                  /
+              bbb:0
+                  \
+                     aaa:0
+
+Adding ddd to AVL tree
+
+Post Tree: 
+                     fff:0
+                  /
+              eee:0
+                  \
+                     ddd:0
+            /
+root ->ccc:1
+            \
+              bbb:0
+                  \
+                     aaa:0
+
+CASE7: PIVOT IS THE ROOT OF THE TREE AND T1 AND T4 ARE HEIGHTS OF 2
+
+Pre Tree:
+                     lll:0
+                  /
+              kkk:0
+                  \
+                     jjj:0
+            /
+root ->iii:-1
+            \
+                            hhh:0
+                        /
+                     ggg:0
+                        \
+                            fff:0
+                  /
+              ddd:0
+                  \
+                            ccc:0
+                        /
+                     bbb:0
+                        \
+                            aaa:0
+
+Adding eee to AVL tree
+
+Post Tree: 
+                            lll:0
+                        /
+                     kkk:0
+                        \
+                            jjj:0
+                  /
+              iii:0
+                  \
+                     hhh:0
+            /
+root ->ggg:1
+            \
+                     fff:-1
+                        \
+                            eee:0
+                  /
+              ddd:0
+                  \
+                            ccc:0
+                        /
+                     bbb:0
+                        \
+                            aaa:0
+
+-------------------------DOUBLE ROTATE RIGHT LEFT CASES-------------------------
+
+CASE1: PIVOT IS THE RIGHT CHILD OF THE CLOUD
+
+Pre Tree:
+                     eee:0
+                  /
+              ccc:1
+            /
+root ->bbb:1
+            \
+              aaa:0
+
+Adding ddd to AVL tree
+
+Post Tree: 
+                     eee:0
+                  /
+              ddd:0
+                  \
+                     ccc:0
+            /
+root ->bbb:1
+            \
+              aaa:0
+
+CASE2: PIVOT IS THE LEFT CHILD OF THE CLOUD
+
+Pre Tree:
+              eee:0
+            /
+root ->ddd:-1
+            \
+                     ccc:0
+                  /
+              aaa:1
+
+Adding bbb to AVL tree
+
+Post Tree: 
+              eee:0
+            /
+root ->ddd:-1
+            \
+                     ccc:0
+                  /
+              bbb:0
+                  \
+                     aaa:0
+
+CASE3: PIVOT IS THE ROOT OF THE TREE
+
+Pre Tree:
+              ccc:0
+            /
+root ->aaa:1
+
+Adding bbb to AVL tree
+
+Post Tree: 
+              ccc:0
+            /
+root ->bbb:0
+            \
+              aaa:0
+
+CASE4: PIVOT IS THE ROOT OF THE TREE AND T4 IS HEIGHT OF 1
+
+Pre Tree:
+                     fff:0
+                  /
+              eee:0
+                  \
+                     ccc:0
+            /
+root ->bbb:1
+            \
+              aaa:0
+
+Adding ddd to AVL tree
+
+Post Tree: 
+                     fff:0
+                  /
+              eee:0
+                  \
+                     ddd:0
+            /
+root ->ccc:1
+            \
+              bbb:0
+                  \
+                     aaa:0
+
+CASE5: PIVOT IS THE ROOT OF THE TREE AND T2 IS HEIGHT OF 1
+
+Pre Tree:
+                     fff:0
+                  /
+              eee:0
+                  \
+                     ddd:0
+            /
+root ->bbb:1
+            \
+              aaa:0
+
+Adding ccc to AVL tree
+
+Post Tree: 
+                     fff:0
+                  /
+              eee:0
+            /
+root ->ddd:1
+            \
+                     ccc:0
+                  /
+              bbb:0
+                  \
+                     aaa:0
+
+CASE6: PIVOT IS THE ROOT OF THE TREE AND T3 IS HEIGHT OF 1
+
+Pre Tree:
+                     fff:0
+                  /
+              eee:0
+                  \
+                     ccc:0
+            /
+root ->bbb:1
+            \
+              aaa:0
+
+Adding ddd to AVL tree
+
+Post Tree: 
+                     fff:0
+                  /
+              eee:0
+                  \
+                     ddd:0
+            /
+root ->ccc:1
+            \
+              bbb:0
+                  \
+                     aaa:0
+
+CASE7: PIVOT IS THE ROOT OF THE TREE AND T1 AND T4 ARE HEIGHTS OF 2
+
+Pre Tree:
+                            lll:0
+                        /
+                     kkk:0
+                        \
+                            jjj:0
+                  /
+              iii:0
+                  \
+                            hhh:0
+                        /
+                     ggg:0
+                        \
+                            fff:0
+            /
+root ->ddd:1
+            \
+                     ccc:0
+                  /
+              bbb:0
+                  \
+                     aaa:0
+
+Adding eee to AVL tree
+
+Post Tree: 
+                            lll:0
+                        /
+                     kkk:0
+                        \
+                            jjj:0
+                  /
+              iii:0
+                  \
+                     hhh:0
+            /
+root ->ggg:1
+            \
+                     fff:-1
+                        \
+                            eee:0
+                  /
+              ddd:0
+                  \
+                            ccc:0
+                        /
+                     bbb:0
+                        \
+                            aaa:0
+
